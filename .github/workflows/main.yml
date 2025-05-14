@@ -6,9 +6,9 @@ on:
       - main
 
 jobs:
-  notification:
-    name: Build and Test Notification Service
+  build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -18,50 +18,27 @@ jobs:
         with:
           node-version: 16
 
-      - name: Install dependencies
-        working-directory: services/NotificationService
+      - name: Install dependencies for NotificationService
+        working-directory: ./services/NotificationService
         run: npm install
 
-      - name: Run tests
-        working-directory: services/NotificationService
-        run: npm test
-
-  horario:
-    name: Build and Test Horario Service
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16
-
-      - name: Install dependencies
-        working-directory: services/HorarioService
+      - name: Install dependencies for HorarioService
+        working-directory: ./services/HorarioService
         run: npm install
 
-      - name: Run tests
-        working-directory: services/HorarioService
-        run: npm test
-
-  reserva:
-    name: Build and Test Reserva Service
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16
-
-      - name: Install dependencies
-        working-directory: services/ReservaService
+      - name: Install dependencies for ReservaService
+        working-directory: ./services/ReservaService
         run: npm install
 
-      - name: Run tests
-        working-directory: services/ReservaService
+      - name: Run tests for NotificationService
+        working-directory: ./services/NotificationService
         run: npm test
+
+      - name: Run tests for HorarioService
+        working-directory: ./services/HorarioService
+        run: npm test
+
+      - name: Run tests for ReservaService
+        working-directory: ./services/ReservaService
+        run: npm test
+
