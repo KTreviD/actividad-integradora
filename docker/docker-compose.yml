@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+  reserva:
+    build:
+      context: ./services/ReservaService
+    ports:
+      - "3001:3000"
+
+  horario:
+    build:
+      context: ./services/HorarioService
+    ports:
+      - "3002:3000"
+
+  notification:
+    build:
+      context: ./services/NotificationService
+    ports:
+      - "3003:3000"
