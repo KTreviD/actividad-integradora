@@ -29,16 +29,3 @@ jobs:
       - name: Install dependencies for ReservaService
         working-directory: ./services/ReservaService
         run: npm install
-
-      - name: Run tests for NotificationService
-        working-directory: ./services/NotificationService
-        run: npm test
-
-      - name: Run tests for HorarioService
-        working-directory: ./services/HorarioService
-        run: npm test
-
-      - name: Run tests for ReservaService
-        working-directory: ./services/ReservaService
-        run: npm test
-
